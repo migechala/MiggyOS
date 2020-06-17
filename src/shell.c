@@ -1,4 +1,5 @@
 #include "../include/shell.h"
+
 void launch_shell(int n)
 {
 	int closed = 0;
@@ -44,13 +45,9 @@ void launch_shell(int n)
 			{
 				sort();
 			}
-			else if (strEql(ch, "fibonaci"))
-			{
-				fibonaci();
-			}
 			else if (strEql(ch, "gcf"))
 			{
-				gcd();
+				gcf();
 			}
 			else if (strEql(ch, "help"))
 			{
@@ -165,37 +162,17 @@ int sum_array(int arr[], int n)
 	}
 	return s;
 }
-void fibonaci()
-{
-	print("\nHow many Elements in Fibonaci do You Want: ");
-	int n = str_to_int(readStr());
-	print("\n");
-	int i = 0;
-	for (i = 0; i < n; i++)
-	{
-		print(int_to_string(i + 1));
-		print(" : ");
-		print(int_to_string(fibo(i + 1)));
-		print("\n");
-	}
-}
-int fibo(int n)
-{
-	if (n < 2)
-		return 1;
-	else
-		return fibo(n - 1) + fibo(n - 2);
-}
-int gcd_couple(int a, int b)
+
+int gcf_couple(int a, int b)
 {
 	if (b == 0)
 		return 1;
 	if (a % b == 0)
 		return b;
 	else
-		return gcd_couple(b, a % b);
+		return gcf_couple(b, a % b);
 }
-void gcd()
+void gcf()
 {
 	print("\nHow many numbers: ");
 	int n = str_to_int(readStr());
@@ -213,7 +190,7 @@ void gcd()
 	{
 		for (j = 0; j < n - 1; j++)
 		{
-			matrix[i][j] = gcd_couple(matrix[i - 1][j], matrix[i - 1][j + 1]);
+			matrix[i][j] = gcf_couple(matrix[i - 1][j], matrix[i - 1][j + 1]);
 		}
 	}
 	print("Result: ");
@@ -280,8 +257,7 @@ void help()
 	print("\nsum       : Computes the sum of n numbers");
 	print("\necho      : Reprint a given text");
 	print("\nsort      : Sorts a given n numbers");
-	print("\nfibonaci  : Prints the first n numbers of fibonaci");
-	print("\ngcd       : Computes the grand common divider of n given numbers");
+	print("\ngcf       : Computes the grand common divider of n given numbers");
 	print("\nexit      : Quits the current shell");
 	print("\ncolor     : Changes the colors of the terminal");
 

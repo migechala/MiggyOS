@@ -1,2 +1,0 @@
-
-qemu-system-i386 -kernel MiggyOS/boot/kernel.bin

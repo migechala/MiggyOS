@@ -61,6 +61,10 @@ void launch_shell(int n)
 			{
 				multiply();
 			}
+			else if (strEql(ch, "lcm"))
+			{
+				lcm();
+			}
 			else if (strEql(ch, ""))
 			{
 				print("\n \n");
@@ -197,6 +201,43 @@ void gcf()
 	print(int_to_string(matrix[n - 1][0]));
 	print("\n");
 }
+int lcm_couple(int n1, int n2)
+{
+	int min = (n1 > n2) ? n1 : n2;
+
+	while (1)
+	{
+		if (min % n1 == 0 && min % n2 == 0)
+		{
+			return min;
+		}
+		++min;
+	}
+	return 0;
+}
+void lcm()
+{
+	print("\nHow many numbers:    ");
+	int n = str_to_int(readStr());
+	print("\n");
+	int arr[n];
+	int m[n][n];
+	fill_array(arr, n);
+	for (int i = 0; i < n; i++)
+	{
+		m[0][i] = arr[i];
+	}
+	for (int i = 1; i < n; i++)
+	{
+		for (int j = 0; j < n - 1; j++)
+		{
+			m[i][j] = lcm_couple(m[i - 1][j], m[i - 1][j + 1]);
+		}
+	}
+	print("LCM is:   ");
+	print(int_to_string(m[n - 1][0]));
+	print("\n");
+}
 void print_matrix(int matrix[][100], int rows, int cols)
 {
 	int i = 0;
@@ -257,7 +298,8 @@ void help()
 	print("\nsum       : Computes the sum of n numbers");
 	print("\necho      : Reprint a given text");
 	print("\nsort      : Sorts a given n numbers");
-	print("\ngcf       : Computes the grand common divider of n given numbers");
+	print("\nlcm       : Computes the least common multiple of n given numbers");
+	print("\ngcf       : Computes the greatest common factor of n given numbers");
 	print("\nexit      : Quits the current shell");
 	print("\ncolor     : Changes the colors of the terminal");
 

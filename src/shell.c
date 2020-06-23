@@ -1,5 +1,4 @@
 #include "../include/shell.h"
-
 void launch_shell(int n)
 {
 	int closed = 0;
@@ -19,53 +18,53 @@ void launch_shell(int n)
 			print(int_to_string(n));
 			print(")$ ");
 			ch = readStr(); //memory_copy(readStr(), ch,100);
-			if (strEql(ch, "start"))
+			if (streql(ch, "start"))
 			{
 				print("\n\n");
 				launch_shell(n + 1);
 			}
-			else if (strEql(ch, "clear"))
+			else if (streql(ch, "clear"))
 			{
 				clearScreen();
 			}
-			else if (strEql(ch, "sum"))
+			else if (streql(ch, "sum"))
 			{
 				sum();
 			}
-			else if (strEql(ch, "exit"))
+			else if (streql(ch, "exit"))
 			{
 				print("\n\n");
 				launch_shell(n - 1);
 			}
-			else if (strEql(ch, "echo"))
+			else if (streql(ch, "echo"))
 			{
 				echo();
 			}
-			else if (strEql(ch, "sort"))
+			else if (streql(ch, "sort"))
 			{
 				sort();
 			}
-			else if (strEql(ch, "gcf"))
+			else if (streql(ch, "gcf"))
 			{
 				gcf();
 			}
-			else if (strEql(ch, "help"))
+			else if (streql(ch, "help"))
 			{
 				help();
 			}
-			else if (strEql(ch, "color"))
+			else if (streql(ch, "color"))
 			{
 				set_background_color();
 			}
-			else if (strEql(ch, "multiply"))
+			else if (streql(ch, "multiply"))
 			{
 				multiply();
 			}
-			else if (strEql(ch, "lcm"))
+			else if (streql(ch, "lcm"))
 			{
 				lcm();
 			}
-			else if (strEql(ch, ""))
+			else if (streql(ch, ""))
 			{
 				print("\n \n");
 			}
@@ -78,7 +77,7 @@ void launch_shell(int n)
 			{
 				break;
 			}
-		} while (!strEql(ch, "exit"));
+		} while (!streql(ch, "exit"));
 	}
 }
 
@@ -293,7 +292,7 @@ void multiply()
 
 void help()
 {
-	print("\nstart     : Launch a new recursive Shell");
+	print("\nstart     : Launch a new Shell");
 	print("\nclear     : Clears the screen");
 	print("\nsum       : Computes the sum of n numbers");
 	print("\necho      : Reprint a given text");

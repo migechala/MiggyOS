@@ -11,7 +11,3 @@ kmain()
 	launch_shell(0);
 	return 0;
 }
-null()
-{
-	;
-}

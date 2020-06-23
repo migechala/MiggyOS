@@ -1,5 +1,4 @@
-#ifndef TYPES_H
-#define TYPES_H
+#pragma once
 
 typedef signed char int8;
 typedef unsigned char uint8;
@@ -13,9 +12,7 @@ typedef unsigned int uint32;
 typedef signed long long int64;
 typedef unsigned long long uint64;
 
-typedef char* string; 
+typedef char *string;
 
-#define low_16(address) (uint16)((address) & 0xFFFF)            
+#define low_16(address) (uint16)((address)&0xFFFF)
 #define high_16(address) (uint16)(((address) >> 16) & 0xFFFF)
-
-#endif

@@ -1,8 +1,6 @@
-#ifndef KB_H
-#define KB_H
+#pragma once
+
 #include "screen.h"
 #include "util.h"
 
 string readStr();
-
-#endif

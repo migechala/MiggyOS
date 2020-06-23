@@ -1,5 +1,4 @@
-#ifndef SHELL_H
-#define SHELL_H
+#pragma once
 #include "system.h"
 #include "string.h"
 #include "kb.h"
@@ -8,7 +7,3 @@
 #include "util.h"
 
 void launch_shell(int n);
-
-
-
-#endif
